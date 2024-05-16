@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card-deck">
+    <!-- Card: Author Details -->
+    <div class="card bg-light border-warning shadow">
+      <div class="card-header">
+        <h2 class="text-center">Author Details</h2>
+      </div>
+      <div class="card-body">
+        <!-- Error Messages -->
+        <% if flash[:errors] %>
+          <% flash.each do |name,message| %>
+            <p class="text-danger"><%= message %></p>
+          <% end %>
+        <% end %>
+        <div>
+          <h2>&#10145; Name: <%= @author.name %></h2>
+          <h2>&#10145; Email: <%= @author.email %></h2>
+          <h2>&#10145; Author Books:</h2>
+          <% if @author.books.any? %>
+            <ul>
+              <% @author.books.each do |book| %>
+                <li><%= book.name %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No books found for this author</p>
+          <% end %>
+        </div>
+        <!-- Button -->
+        <div class="d-flex justify-content-center mt-3">
+          <%= button_to "View All Authors", authors_path, method: :get, class: "btn btn-primary rounded-pill shadow" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

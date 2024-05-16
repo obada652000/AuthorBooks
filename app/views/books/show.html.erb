@@ -1,0 +1,27 @@
+<div class="flex-column" style="height:100vh;">
+  <!-- Error Message -->
+  <% if flash[:errors] %>
+    <% flash.each do |name,message| %>
+      <p class="text-danger"><%= message %></p>
+    <% end %>
+  <% end %>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="m-5">
+      <div class="card bg-light border-warning shadow">
+        <div class="card-body">
+          <div class="card-header">
+            <h2 class="text-center">Book Details</h2>
+          </div>
+          <div>
+            <h2>&#10145; Name: <%= @book.name %></h2>
+            <h2>&#10145; Release Date: <%= @book.release_date %></h2>
+            <h2>&#10145; Author Name: <%= @book.author.name %></h2>
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <%= button_to "View All Books", books_path, method: :get, class: "btn btn-primary rounded-pill shadow" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

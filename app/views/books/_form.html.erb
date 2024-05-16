@@ -1,0 +1,33 @@
+<style>
+.input-wrapper {
+  max-width: 400px; /* Adjust the max-width as needed */
+  margin: 0 auto; /* Center the input field within the wrapper */
+}
+</style>
+
+
+<%= form_with model: @book, local: true, class: "form-horizontal" do |f| %>
+  <div class="form-group row mt-3">
+    <%= f.label :name, "Book Name:", class: "col-sm-2 col-form-label text-right" %>
+    <div class="col-sm-10">
+      <div class="input-wrapper">
+        <%= f.text_field :name, placeholder: "Enter Book Name", class: "form-control rounded-pill mb-2" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mt-3">
+    <%= f.label :release_date, "Release Date:", class: "col-sm-2 col-form-label text-right" %>
+    <div class="col-sm-10">
+      <div class="input-wrapper">
+        <%= f.date_select :release_date, { start_year: 1900, end_year: Date.today.year }, { class: "form-control rounded-pill mb-2" } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mt-3">
+    <div class="col-sm-10 offset-sm-6">
+      <%= f.submit "Save Book", class: "btn btn-primary rounded-pill px-4 py-2" %>
+    </div>
+  </div>
+<% end %>

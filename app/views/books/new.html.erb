@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container mt-7">
+    <!-- Table -->
+    <h2 class="mb-5">Add New Books</h2>
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <% if flash[:errors] %>
+            <% flash[:errors].each do |error| %>
+              <p class="text-danger"><%= error %></p>
+            <% end %>
+          <% end %>
+
+          <!-- Render the Partial Form -->
+          <div class="card-body">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Dark table -->
+  </div>
+</div>
