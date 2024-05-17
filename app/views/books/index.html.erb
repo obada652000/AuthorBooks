@@ -63,7 +63,7 @@
                             <%= button_to "Edit", edit_book_path(b), method: :get, class: "btn-primary border-0 rounded-pill shadow px-3 py-2" %>
                           </td>
                           <td class="text-center">
-                            <%= button_to "Delete", book_path(b), method: :delete, class: "btn-danger border-0 rounded-pill shadow px-3 py-2" %>
+                            <%= button_to "Delete", book_path(b), method: :delete,class: "btn-danger border-0 rounded-pill shadow px-3 py-2"  , form: { data: { turbo_confirm: "Are you sure you want to delete this book?" } } %>
                           </td>
                         <% else %>
                           <td class="text-center"></td>

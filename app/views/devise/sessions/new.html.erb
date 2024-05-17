@@ -41,6 +41,17 @@
             margin-top: 20px;
             display: block;
         }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-danger {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
     </style>
 </head>
 
@@ -50,8 +61,14 @@
             <div class="card-body">
                 <h3 class="text-center">Sign in</h3>
 
+                <!-- Flash messages -->
+                <% if flash[:alert] %>
+                <div class="alert alert-danger">
+                    <%= flash[:alert] %>
+                </div>
+                <% end %>
+
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                
 
                 <div class="form-outline">
                     <%= f.label :email, class: "form-label" %>
@@ -65,8 +82,10 @@
 
                 <% if devise_mapping.rememberable? %>
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <%= f.check_box :remember_me, class: "form-check-input" %>
-                    <%= f.label :remember_me, class: "form-check-label" %>
+                    <div class="form-check">
+                        <%= f.check_box :remember_me, class: "form-check-input" %>
+                        <%= f.label :remember_me, class: "form-check-label" %>
+                    </div>
                 </div>
                 <% end %>
 

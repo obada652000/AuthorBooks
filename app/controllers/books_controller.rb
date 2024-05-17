@@ -59,7 +59,7 @@ class BooksController < ApplicationController
   def destroy
     if @book.delete
       flash[:errors] = 'Book Deleted Successfully'
-      redirect_to book_path(@book)
+      redirect_to books_path
     else
       flash[:errors] = @book.errors.full_messages
       redirect_to destroy_books_path
